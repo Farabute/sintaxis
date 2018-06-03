@@ -12,6 +12,10 @@ int main(){
           estado,
           caracter;
 
+    int cantIdentificador = 0,
+        cantError = 0,
+        cantConstante = 0;
+
 
     TT[0][0]= 2;
     TT[0][1]= 1;
@@ -31,35 +35,48 @@ int main(){
     caracter = getc(archivo);
 
    while (!feof(archivo)){
-    estado = 0;
-    while(caracter != 32 && !feof(archivo)){
+        estado = 0;
 
-     if((caracter>='0' && caracter<='9') || caracter == 10)
-      estado = TT [estado][digito];
-     else if ((caracter>=65&&caracter<=90)||(caracter>=97&&caracter<=122)||caracter == 10)
-      estado = TT [estado][letra];
-     else
-       estado = TT [estado][error];
+        while(caracter != 32 && !feof(archivo)){
 
-       caracter = getc(archivo);
-    }
+            if((caracter>='0' && caracter<='9') || caracter == 10)
+                estado = TT [estado][digito];
+            else if ((caracter>=65&&caracter<=90)||(caracter>=97&&caracter<=122)||caracter == 10)
+                estado = TT [estado][letra];
+            else
+                estado = TT [estado][error];
 
-    switch (estado){
-   case 1:
-       printf("constante entera \n");
-   break;
+            caracter = getc(archivo);
+        }
 
-   case 2 :
-    printf ("identificador \n");
-    break;
+        switch (estado){
 
-   default:
-    printf("error \n");
+            case 1:
+                printf("constante entera \n");
+                cantConstante++;
 
-  }
-     caracter = getc(archivo);
+                break;
+
+            case 2 :
+                printf ("identificador \n");
+                cantIdentificador++;
+
+                break;
+
+            default:
+                printf("error \n");
+                cantError++;
+
+        }
+
+        caracter = getc(archivo);
 
    }
+
+    printf("\nIdentificadores: %i.\n",cantIdentificador);
+    printf("Constantes enteras: %i.\n",cantConstante);
+    printf("Errores: %i.\n",cantError);
+
     fclose(archivo);
     return 0;
 }

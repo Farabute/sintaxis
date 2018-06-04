@@ -1,12 +1,6 @@
-#include <stdio.h>
-#include "Scanner.h"
+#ifndef SCANNER_H_INCLUDED
+#define SCANNER_H_INCLUDED
 
+void ScannerAFD(char nombredelarchivo[21]);
 
-
-int main(){
-
-
-ScannerAFD("archivo.txt");
-
- return 0;
-}
+#endif // SCANNER_H_INCLUDED

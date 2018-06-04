@@ -93,6 +93,7 @@ void ScannerAFD(char nombredelarchivo[21]){
             printf("error\nconstante entera\n");
             cantError++;
             cantConstante++;
+            break;
 
         }
       do{

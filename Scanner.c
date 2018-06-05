@@ -15,7 +15,6 @@ void ScannerAFD(char nombredelarchivo[21]){
         cantError = 0,
         cantConstante = 0;
 
-
     TT[0][letra]= 2;
     TT[0][digito]= 1;
     TT[0][error]= 3;
@@ -42,39 +41,44 @@ void ScannerAFD(char nombredelarchivo[21]){
 
     archivo = fopen (nombredelarchivo,"r");
 
-
  do{
         caracter = getc(archivo);
       }
       while (caracter==espacio||caracter==saltoDeLinea);
 
    while (!feof(archivo)){
+       
     estado = 0;
+       
     while(caracter != espacio && caracter!= saltoDeLinea){
 
      if((caracter>='0' && caracter<='9') )
       estado = TT [estado][digito];
+        
      else if ((caracter>=65&&caracter<=90)||(caracter>=97&&caracter<=122))
       estado = TT [estado][letra];
+        
      else
        estado = TT [estado][error];
        caracter = getc(archivo);
     }
 
-
  switch (estado){
 
             case 1:
+         
                 printf("constante entera\n");
                 cantConstante++;
 
                 break;
 
             case 2 :
+         
                 printf ("identificador\n");
                 cantIdentificador++;
 
                 break;
+         
             case 3:
 
                 printf("error\n");
@@ -83,6 +87,7 @@ void ScannerAFD(char nombredelarchivo[21]){
                 break;
 
             case 4:
+         
               printf("error\nidentificador\n");
               cantError++;
               cantIdentificador++;
@@ -90,18 +95,18 @@ void ScannerAFD(char nombredelarchivo[21]){
               break;
 
             case 5:
+         
             printf("error\nconstante entera\n");
             cantError++;
             cantConstante++;
+         
             break;
-
         }
+       
       do{
         caracter = getc(archivo);
       }
       while (caracter==espacio||caracter==saltoDeLinea);
-
-
    }
 
     printf("----\n");
@@ -109,7 +114,6 @@ void ScannerAFD(char nombredelarchivo[21]){
     printf("Identificadores: %i\n",cantIdentificador);
     printf("Constantes enteras: %i\n",cantConstante);
     printf("Errores: %i\n",cantError);
-
 
     fclose(archivo);
 }

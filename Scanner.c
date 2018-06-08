@@ -48,7 +48,7 @@ void ScannerAFD (char nombredelarchivo[21]) {
                     salida = 2;
                 } else {
                     estado = TT [estado][letra];
-                    salida = 1;
+                    //salida = 1;
                 }
             } else if (caracter >= '0' && caracter <='9'){
                 if (estado == 3) {
@@ -56,7 +56,7 @@ void ScannerAFD (char nombredelarchivo[21]) {
                     salida = 2;
                 } else {
                     estado = TT [estado][digito];
-                    salida = 1;
+                    //salida = 1;
                 }
             } else if (caracter == espacio || caracter == saltoDeLinea){
                 salida = 2;

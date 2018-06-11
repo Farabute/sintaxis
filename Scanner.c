@@ -16,21 +16,25 @@ void ScannerAFD (char nombredelarchivo[21]) {
         cantError = 0,
         cantConstante = 0;
 
-    TT[0][letra]= 1;
+    TT[0][letra] = 1;
     TT[0][digito]= 2;
-    TT[0][error]= 3;
+    TT[0][error] = 3;
 
-    TT[1][letra]= 1;
+    TT[1][letra] = 1;
     TT[1][digito]= 1;
-    TT[1][error]= 3;
+    TT[1][error] = 4;
 
-    TT[2][letra]= 1;
+    TT[2][letra] = 4;
     TT[2][digito]= 2;
-    TT[2][error]= 3;
+    TT[2][error] = 4;
 
-    TT[3][letra]= 1;
-    TT[3][digito]= 2;
-    TT[3][error]= 3;
+    TT[3][letra] = 4;
+    TT[3][digito]= 4;
+    TT[3][error] = 3;
+
+    TT[4][letra] = 4;
+    TT[4][digito]= 4;
+    TT[4][error] = 4;
 
 
     archivo = fopen (nombredelarchivo,"r");
@@ -41,31 +45,27 @@ void ScannerAFD (char nombredelarchivo[21]) {
         estado = 0;
         salida = 0;
 
-        while(salida != 2){
+        while(salida != 4){
             if ((caracter >= 65 && caracter <= 90) || (caracter >= 97 && caracter <= 122)){
-                if (estado == 2 || estado == 3) {
+                if (estado == 2 || estado == 3)
                     ungetc(caracter,archivo);
-                    salida = 2;
-                } else {
+                else
                     estado = TT [estado][letra];
-                    //salida = 1;
-                }
+                salida = TT [estado][letra];
             } else if (caracter >= '0' && caracter <='9'){
-                if (estado == 3) {
+                if (estado == 3)
                     ungetc(caracter,archivo);
-                    salida = 2;
-                } else {
+                else
                     estado = TT [estado][digito];
-                    //salida = 1;
-                }
+                salida = TT [estado][digito];
             } else if (caracter == espacio || caracter == saltoDeLinea){
-                salida = 2;
+                salida = 4;
             } else {
                 if (estado == 1 || estado == 2){
                     ungetc(caracter,archivo);
-                    salida = 2;
                 } else
                     estado = TT [estado][error];
+                salida = TT [estado][error];
             }
             caracter = getc(archivo);
         }

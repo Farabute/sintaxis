@@ -3,7 +3,7 @@
 void ScannerAFD (char nombredelarchivo[21]) {
 
     FILE *archivo;
-    int TT [4][3];
+    int TT [5][3];
     int letra = 0,
         digito = 1,
         error = 2,

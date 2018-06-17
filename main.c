@@ -34,15 +34,15 @@ Integrantes:
   token = ScannerAFD();
 
  switch (token){
-            case 0:
+            case IDENTIFICADOR:
                 printf("identificador\n");
                 cantIdentificador++;
                 break;
-            case 1:
+            case CONSTANTE:
                 printf("constante entera\n");
                 cantConstante++;
                 break;
-            case 2:
+            case ERROR:
                 printf("error\n");
                 cantError++;
                 break;

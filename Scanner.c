@@ -30,49 +30,49 @@ Integrantes:
     TT[0][digito]= 3;
     TT[0][signo] = 5;
     TT[0][espacio]= 0;
-    TT[0][fdc] = 7;
+    TT[0][fdc] = 7; // Estado inicial
 
     TT[1][letra] = 1;
     TT[1][digito]= 1;
     TT[1][signo] = 2;
     TT[1][espacio]= 2;
-    TT[1][fdc] = 2;
+    TT[1][fdc] = 2; // Camino a reconocer un identificardor
 
     TT[2][letra] = 99;
     TT[2][digito]= 99;
     TT[2][signo] = 99;
     TT[2][espacio]= 99;
-    TT[2][fdc] = 99;
+    TT[2][fdc] = 99; // Estado terminal, reconoce identificador
 
     TT[3][letra] = 4;
     TT[3][digito]= 3;
     TT[3][signo] = 4;
     TT[3][espacio]= 4;
-    TT[3][fdc] = 4;
+    TT[3][fdc] = 4; // Camino a reconocer una constante entera
 
     TT[4][letra] = 99;
     TT[4][digito]= 99;
     TT[4][signo] = 99;
     TT[4][espacio]= 99;
-    TT[4][fdc] = 99;
+    TT[4][fdc] = 99; // Estado terminal, reconoce constante entera
 
     TT[5][letra] = 6;
     TT[5][digito]= 6;
     TT[5][signo] = 5;
     TT[5][espacio]= 6;
-    TT[5][fdc] = 6;
+    TT[5][fdc] = 6; // Estado no terminal, camino a reconocer un error
 
     TT[6][letra] = 99;
     TT[6][digito]= 99;
     TT[6][signo] = 99;
     TT[6][espacio]= 99;
-    TT[6][fdc] = 99;
+    TT[6][fdc] = 99; // Estado terminal, reconoce error
 
     TT[7][letra] = 99;
     TT[7][digito]= 99;
     TT[7][signo] = 99;
     TT[7][espacio]= 99;
-    TT[7][fdc] = 99;
+    TT[7][fdc] = 99; // Estado terminal, final de la cadena
 
     estado = 0;
 
@@ -117,7 +117,6 @@ Integrantes:
     }
 
     }
-
 
 
 

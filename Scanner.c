@@ -88,9 +88,10 @@ Integrantes:
         estado = TT [estado][2];
 
     if (isspace(caracter)){
-          if(iscntrl(caracter))
+                
+       if(iscntrl(caracter))
          estado = TT [estado][4];
-    else
+       else
          estado = TT [estado][3];
     }
     }

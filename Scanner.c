@@ -1,16 +1,16 @@
 /*
 UTNFRBA
-Tp0 - año 2018
+Tp0 - aÃ±o 2018
 "Un scanner elemental"
 
 Materia: Sintaxis y semantica de los lenguajes.
 Curso: K2055
-Profesor: Eduardo Zuñiga.
+Profesor: Eduardo ZuÃ±iga.
 Grupo: 3
 Integrantes:
             Mariano Antico, Legajo: 164549-3
-            Nicolás D. Felicetti, Legajo: 163608-0
-            Enzo Nuñez, Legajo: 164949-8
+            NicolÃ¡s D. Felicetti, Legajo: 163608-0
+            Enzo NuÃ±ez, Legajo: 164949-8
             Gonzalo Bonora, Legajo: 156036-0
 */
 
@@ -38,11 +38,11 @@ Integrantes:
     TT[1][espacio]= 2;
     TT[1][fdc] = 2;
 
-    TT[2][letra] = 2;
-    TT[2][digito]= 2;
-    TT[2][signo] = 2;
-    TT[2][espacio]= 2;
-    TT[2][fdc] = 2;
+    TT[2][letra] = 99;
+    TT[2][digito]= 99;
+    TT[2][signo] = 99;
+    TT[2][espacio]= 99;
+    TT[2][fdc] = 99;
 
     TT[3][letra] = 4;
     TT[3][digito]= 3;
@@ -50,11 +50,11 @@ Integrantes:
     TT[3][espacio]= 4;
     TT[3][fdc] = 4;
 
-    TT[4][letra] = 4;
-    TT[4][digito]= 4;
-    TT[4][signo] = 4;
-    TT[4][espacio]= 4;
-    TT[4][fdc] = 4;
+    TT[4][letra] = 99;
+    TT[4][digito]= 99;
+    TT[4][signo] = 99;
+    TT[4][espacio]= 99;
+    TT[4][fdc] = 99;
 
     TT[5][letra] = 6;
     TT[5][digito]= 6;
@@ -62,17 +62,17 @@ Integrantes:
     TT[5][espacio]= 6;
     TT[5][fdc] = 6;
 
-    TT[6][letra] = 6;
-    TT[6][digito]= 6;
-    TT[6][signo] = 6;
-    TT[6][espacio]= 6;
-    TT[6][fdc] = 6;
+    TT[6][letra] = 99;
+    TT[6][digito]= 99;
+    TT[6][signo] = 99;
+    TT[6][espacio]= 99;
+    TT[6][fdc] = 99;
 
-    TT[7][letra] = 7;
-    TT[7][digito]= 7;
-    TT[7][signo] = 7;
-    TT[7][espacio]= 7;
-    TT[7][fdc] = 7;
+    TT[7][letra] = 99;
+    TT[7][digito]= 99;
+    TT[7][signo] = 99;
+    TT[7][espacio]= 99;
+    TT[7][fdc] = 99;
 
     estado = 0;
 
@@ -89,12 +89,12 @@ Integrantes:
     if (ispunct(caracter))
         estado = TT [estado][2];
 
-    if (isspace(caracter))
-         estado = TT [estado][3];
-
-     if(iscntrl(caracter))
+    if (isspace(caracter)){
+          if(iscntrl(caracter))
          estado = TT [estado][4];
-
+    else
+         estado = TT [estado][3];
+    }
     }
 
     switch (estado){
@@ -117,6 +117,9 @@ Integrantes:
     }
 
     }
+
+
+
 
 
 

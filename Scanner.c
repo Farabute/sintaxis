@@ -20,7 +20,7 @@ Integrantes:
  int ScannerAFD () {
 
     int TT [8][5];
-    int estado;
+    int estado = 0;
     enum caracteres {letra,digito,signo,espacio,fdc};
     enum tokens {IDENTIFICADOR,CONSTANTE,ERROR,FDC};
     char caracter;
@@ -73,8 +73,6 @@ Integrantes:
     TT[7][signo] = 99;
     TT[7][espacio]= 99;
     TT[7][fdc] = 99; // Estado terminal, final de la cadena
-
-    estado = 0;
 
     while (estado!= 2&&estado!=4&&estado!=6&&estado!=7){
 

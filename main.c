@@ -1,8 +1,8 @@
-
-/*
+ /*
 UTNFRBA
 Tp0 - año 2018
 "Un scanner elemental"
+
 Materia: Sintaxis y semantica de los lenguajes.
 Curso: K2055
 Profesor: Eduardo Zuñiga.
@@ -12,15 +12,14 @@ Integrantes:
             Nicolás D. Felicetti, Legajo: 163608-0
             Enzo Nuñez, Legajo: 164949-8
             Gonzalo Bonora, Legajo: 156036-0
-*/ 
+*/
 
  #include <stdio.h>
  #include "Scanner.h"
 
  int main(){
 
- enum tokens {IDENTIFICADOR,CONSTANTE,ERROR,FDC};
- int  token,
+ int  token=99,
       cantIdentificador = 0,
       cantError = 0,
       cantConstante = 0;
@@ -31,20 +30,20 @@ Integrantes:
 
  while(token != FDC){
 
-  token = ScannerAFD();
+ token = ScannerAFD();
 
  switch (token){
-                         
+
             case IDENTIFICADOR:
                 printf("identificador\n");
                 cantIdentificador++;
                 break;
-                         
+
             case CONSTANTE:
                 printf("constante entera\n");
                 cantConstante++;
                 break;
-                         
+
             case ERROR:
                 printf("error\n");
                 cantError++;

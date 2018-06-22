@@ -16,13 +16,13 @@ Integrantes:
 
  #include <stdio.h>
  #include <ctype.h>
+ #include "Scanner.h"
 
  int ScannerAFD () {
 
     int TT [8][5];
     int estado = 0;
     enum caracteres {letra,digito,signo,espacio,fdc};
-    enum tokens {IDENTIFICADOR,CONSTANTE,ERROR,FDC};
     char caracter;
 
 
@@ -36,7 +36,7 @@ Integrantes:
     TT[1][digito]= 1;
     TT[1][signo] = 2;
     TT[1][espacio]= 2;
-    TT[1][fdc] = 2; // Estado no terminal,camino a reconocer un identificardor
+    TT[1][fdc] = 2; // Estado no terminal, camino a reconocer un identificardor
 
     TT[2][letra] = 99;
     TT[2][digito]= 99;
@@ -48,7 +48,7 @@ Integrantes:
     TT[3][digito]= 3;
     TT[3][signo] = 4;
     TT[3][espacio]= 4;
-    TT[3][fdc] = 4; // Estado no terminal,camino a reconocer una constante entera
+    TT[3][fdc] = 4; // Estado no terminal, camino a reconocer una constante entera
 
     TT[4][letra] = 99;
     TT[4][digito]= 99;
@@ -88,7 +88,7 @@ Integrantes:
         estado = TT [estado][2];
 
     if (isspace(caracter)){
-                
+
        if(iscntrl(caracter))
          estado = TT [estado][4];
        else
@@ -116,7 +116,6 @@ Integrantes:
     }
 
     }
-
 
 
 
